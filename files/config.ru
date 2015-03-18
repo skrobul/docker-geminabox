@@ -4,6 +4,13 @@ require 'geminabox'
 Geminabox.data = '/opt/geminabox/data'
 Geminabox.build_legacy = ENV['BUILD_LEGACY'] && ENV['BUILD_LEGACY'].downcase.strip == 'true'
 
+#carry on providing gems when rubygems.org is unavailable
+if ENV['GEMS_STOP_ON_RUBYGEMS_FAILURE']
+  Geminabox.allow_remote_failure = false
+else
+  Geminabox.allow_remote_failure = true
+fi
+
 if ENV['GEMS_USERNAME'].nil? ||  ENV['GEMS_PASSWORD'].nil?
   fail 'Please configure credentials with GEMS_USERNAME and GEMS_PASSWORD'
 end
