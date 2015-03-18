@@ -9,7 +9,7 @@ if ENV['GEMS_STOP_ON_RUBYGEMS_FAILURE']
   Geminabox.allow_remote_failure = false
 else
   Geminabox.allow_remote_failure = true
-fi
+end
 
 if ENV['GEMS_USERNAME'].nil? ||  ENV['GEMS_PASSWORD'].nil?
   fail 'Please configure credentials with GEMS_USERNAME and GEMS_PASSWORD'
